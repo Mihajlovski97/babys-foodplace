@@ -1,0 +1,16 @@
+{
+    "services": {
+        "proxy": {
+            "port": 10000
+        },
+        "users": {
+            "port": 10001
+        }
+    },
+    "db": {
+        "username": "",
+        "password": "",
+        "host": "",
+        "dbname": ""
+    }
+}

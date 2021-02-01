@@ -1,0 +1,30 @@
+{
+  "name": "babys-foodplace",
+  "version": "1.0.0",
+  "description": "final project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mihajlovski97/babys-foodplace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mihajlovski97/babys-foodplace/issues"
+  },
+  "homepage": "https://github.com/Mihajlovski97/babys-foodplace#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-http-proxy": "^1.6.2",
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.14",
+    "node-fetch": "^2.6.1",
+    "node-input-validator": "^4.3.2"
+  }
+}
