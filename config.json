@@ -11,9 +11,9 @@
         "jwt_key": "test123!"
     },
     "db": {
-        "username": "",
-        "password": "",
-        "host": "",
-        "dbname": ""
+        "username": "Markox",
+        "password": "admin123",
+        "host": "backend-node.temsp.mongodb.net",
+        "dbname": "babys_foodplace"
     }
 }

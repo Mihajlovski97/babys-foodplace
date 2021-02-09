@@ -30,7 +30,7 @@ const create = async (req, res) => {
     req.body._created = new Date();
     // Save user
     try {
-        let u = await userModel.save(req.body);
+        let u = await userModel.create(req.body);
         res.status(201).send(u);
     } catch (err) {
         console.log(err)
@@ -60,7 +60,7 @@ const login = async (req, res) => {
                 email: ru.email,
                 exp: (new Date().getTime() + (365 * 24 * 60 * 60 * 1000)) / 1000
             };
-            let key = cfg.get('server').jwt_key;
+            let key = cfg.get('security').jwt_key;
             let token = jwt.sign(payload, key);
             return res.status(200).send({ jwt: token});
         }
