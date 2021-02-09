@@ -3,9 +3,12 @@
         "proxy": {
             "port": 10000
         },
-        "users": {
+        "auth": {
             "port": 10001
         }
+    },
+    "security": {
+        "jwt_key": "test123!"
     },
     "db": {
         "username": "",
