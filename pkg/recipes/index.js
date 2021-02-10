@@ -9,7 +9,14 @@ const Recipe = mongoose.model(
         people: String,
         short_descrption: String,
         recipe: String,
-        _created: Date
+        publish_date: Date,
+        _created: Boolean,
+        _deleted: Boolean,
+        user: {
+            id: String,
+            first_name: String,
+            last_name: String
+        }
     },
     'users'
 );
