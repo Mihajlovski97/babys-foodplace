@@ -5,6 +5,9 @@
         },
         "auth": {
             "port": 10001
+        },
+        "recipes": {
+            "port": 10002
         }
     },
     "security": {

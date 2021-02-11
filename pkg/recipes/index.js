@@ -22,12 +22,12 @@ const Recipe = mongoose.model(
 );
 
 const save = async (recipeData) => {
-    let u = new(recipeData);
+    let u = new Recipe(recipeData);
     let data = await u.save();
     return data;
 };
 
-const getRecipe = async (id) => {
+const getOne = async (id) => {
     let data = await Recipe.findOne({_id: id});
     return data;
 };
@@ -59,7 +59,7 @@ const remove = async (id) => {
 
 module.exports = {
     save,
-    getRecipe,
+    getOne,
     getAll,
     getLastest,
     getByCategory,

@@ -6,8 +6,8 @@ const recipeSchema = {
     category: 'required',
     preparation_time: 'required',
     people: 'required',
-    short_descrption: 'required|maxLength:40',
-    recipe: 'required|maxLength:200',
+    short_descrption: 'required',
+    recipe: 'required',
     user: 'required|object',
     'user.first_name': 'required|string',
     'user.last_name': 'required|string'
