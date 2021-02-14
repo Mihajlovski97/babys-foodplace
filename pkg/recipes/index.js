@@ -37,8 +37,8 @@ const getAll = async () => {
     return data;
 };
 
-const getLastest = async () => {
-    let data = await Recipe.find({}, {recipe_title: 1}).sort({ _created: - 1}).limit(3);
+const getLast3 = async () => {
+    let data = await Recipe.find({}, {recipe_title: 1}).sort({ publish_date: - 1}).limit(3);
     return data;
 };
 
@@ -61,7 +61,7 @@ module.exports = {
     save,
     getOne,
     getAll,
-    getLastest,
+    getLast3,
     getByCategory,
     update,
     remove

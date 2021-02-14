@@ -39,7 +39,7 @@ api.get('/api/v1/recipe/:id', recipe.getOne);
 // Get all recipes
 api.get('/api/v1/recipe', recipe.getAll);
 // Get recipe by publish date (last 3)
-api.get('/api/v1/recipe/lastest', recipe.getLastest);
+api.get('/api/v1/recipe/last-recipes', recipe.getLast3);
 // Get recipe by category
 api.get('/api/v1/recipe/category/:cat', recipe.getByCategory);
 // Update recipe

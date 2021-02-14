@@ -47,7 +47,7 @@ const getAll = async (req, res) => {
     }
 };
 
-const getLastest = async (req, res) => {
+const getLast3 = async (req, res) => {
     try {
         let data = await recipesModel.getLastest();
         return res.status(200).send(data);
@@ -105,7 +105,7 @@ module.exports = {
     save,
     getOne,
     getAll,
-    getLastest,
+    getLast3,
     getByCategory,
     update,
     remove
