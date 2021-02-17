@@ -4,10 +4,14 @@ require('../../pkg/db');
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('express-jwt');
+const cors = require('cors')
 
 const auth = require('./handlers/auth');
 
 const api = express();
+
+const app = express();
+app.use(cors());
 
 api.use(bodyParser.json());
 api.use(jwt({
