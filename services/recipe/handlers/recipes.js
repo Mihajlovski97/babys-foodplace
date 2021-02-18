@@ -30,7 +30,7 @@ const getOne = async (req, res) => {
         if (data) {
             return res.status(200).send(data);
         }
-        return req.status(404).send('Not Found');
+        return res.status(404).send('Not Found');
     } catch (err) {
         console.log(err);
         return res.status(500).send('Internal Server Error');
@@ -49,8 +49,10 @@ const getAll = async (req, res) => {
 
 const getLast3 = async (req, res) => {
     try {
-        let data = await recipesModel.getLastest();
+        let data = await recipesModel.getLast3();
         return res.status(200).send(data);
+        // console.log('Last Recipes');
+        // return res.send('OK');
     } catch (err) {
         console.log(err) 
             return res.status(500).send('Internal Server Error');        
@@ -59,7 +61,7 @@ const getLast3 = async (req, res) => {
 
 const getByCategory = async (req, res) => {
     try {
-        let recipes = await recipesModel.getByCategory(req.query.category);
+        let recipes = await recipesModel.getByCategory(req.params.cat);
         if (recipes) {
             return res.status(200).send(recipes);
         } 

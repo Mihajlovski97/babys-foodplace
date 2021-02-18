@@ -51,7 +51,7 @@ export class Singup extends Component {
                         Name:
                         <input
                             type={"text"}
-                            name={"text"}
+                            name={"first_name"}
                             value={this.state.first_name}
                             onChange={this.changeHandler}
                             placeholder="Enter your name" 
@@ -61,7 +61,7 @@ export class Singup extends Component {
                         Last Name:
                         <input
                             type="text"
-                            name={"text"}
+                            name={"last_name"}
                             value={this.state.last_name}
                             onChange={this.changeHandler}
                             placeholder="Enter your lastname" 
@@ -71,7 +71,7 @@ export class Singup extends Component {
                         Email:
                         <input
                             type="text"
-                            name={"text"}
+                            name={"email"}
                             value={this.state.email}
                             onChange={this.changeHandler}
                             placeholder="Enter your email" 
@@ -81,7 +81,7 @@ export class Singup extends Component {
                         Password:
                         <input
                             type="text"
-                            name={"text"}
+                            name={"password"}
                             value={this.state.password}
                             onChange={this.changeHandler}
                             placeholder="Enter your password" 
@@ -91,7 +91,7 @@ export class Singup extends Component {
                         Date of Birth
                         <input
                             type="text"
-                            name={"text"}
+                            name={"dob"}
                             value={this.state.dob}
                             onChange={this.changeHandler}
                             placeholder="Enter your date of birth" 

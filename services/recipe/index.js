@@ -18,7 +18,7 @@ api.use(jwt({
         { url: '/api/v1/recipe/new', methods: ['POST'] },
         { url: '/api/v1/recipe/:id', methods: ['GET'] },
         { url: '/api/v1/recipe', methods: ['GET'] },
-        { url: '/api/v1/recipe/lastest', methods: ['GET'] },
+        { url: '/api/v1/recipe/last', methods: ['GET'] },
         { url: '/api/v1/recipe/category/:cat', methods: ['GET'] },
         { url: '/api/v1/recipe/update/:id', methods: ['PUT'] },
         { url: '/api/v1/recipe/delete/:id', methods: ['DELETE'] }
@@ -31,7 +31,7 @@ api.use(function (err, req, res, next){
     }
 });
 
-
+api.get('/api/v1/recipe/last', recipe.getLast3);
 // Save new recipe
 api.post('/api/v1/recipe/new', recipe.save);
 // Get one recipe
@@ -39,7 +39,7 @@ api.get('/api/v1/recipe/:id', recipe.getOne);
 // Get all recipes
 api.get('/api/v1/recipe', recipe.getAll);
 // Get recipe by publish date (last 3)
-api.get('/api/v1/recipe/last-recipes', recipe.getLast3);
+// api.get('/api/v1/recipe/last', recipe.getLast3);
 // Get recipe by category
 api.get('/api/v1/recipe/category/:cat', recipe.getByCategory);
 // Update recipe

@@ -10,8 +10,8 @@ const auth = require('./handlers/auth');
 
 const api = express();
 
-const app = express();
-app.use(cors());
+// const app = express();
+api.use(cors());
 
 api.use(bodyParser.json());
 api.use(jwt({
