@@ -6,38 +6,39 @@ import "../navbar/navbar.css";
 
 export const Nav = () => {
     return(
-        <div className="header">
-            <ul className="nav">
-                <li className="nav-list-item">
-                    <Link to={"/"} className="link-item"><img src={logo} className="logo" alt="logo" /></Link>
-                </li>
-                <li className="nav-list-item-cat">
-                    <Link to={"/breakfast"} className="link-item">Breakfast</Link>
-                </li>
-                <li className="nav-list-item-cat">
-                    <Link to={"/brunch"} className="link-item">Brunch</Link>
-                </li>
-                <li className="nav-list-item-cat">
-                    <Link to={"/lunch"} className="link-item">Lunch</Link>
-                </li>
-                <li className="nav-list-item-cat">
-                    <Link to={"/dinner"} className="link-item">Dinner</Link>
-                </li>
-                <div className="first-nav">
+        <nav className="navigation">
+            <div className="wrapper">                
+                <Link to={"/"} className=""><img src={logo} className="logo" alt="logo" /></Link>                
+                <div className="navbar" id="colapse">
                     <ul>
-                        <li className="nav-list-item">
-                            <Link to={"/login"} className="link-item">
-                                <button className="btn-login">Log in</button>
-                            </Link>
-                            OR
-                            <Link to={"/sing-up"} className="link-item">
-                                <button className="btn-singup">Create Account</button>
-                            </Link>
+                        <li>
+                            <Link to="/breakfast" className="link-item">breakfast</Link>
+                        </li>
+                        <div class="circle"></div>
+                        <li>
+                            <Link to="/brunch" className="link-item">brunch</Link>
+                        </li>
+                        <div class="circle"></div>
+                        <li>
+                            <Link to="/lunch" className="link-item">lunch</Link>
+                        </li>
+                        <div class="circle"></div>
+                        <li>
+                            <Link to="/dinner" className="link-item">dinner</Link>
                         </li>
                     </ul>
+                    <div className="btn-group">
+                            <Link to={"/login"}>
+                                <button className="btn-login">Log in</button>
+                            </Link>
+                            <p className="spacer">or</p>
+                            <Link to={"/sing-up"}>
+                                <button className="btn-singup">Create Account</button>
+                            </Link>
+                    </div>
                 </div>
-            </ul>
-        </div>
+            </div>
+        </nav>        
     );
 };
 
