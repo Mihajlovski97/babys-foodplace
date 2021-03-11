@@ -15,9 +15,9 @@ const create = async (req, res) => {
     }
     // Check for user in DB
     try {
-        let ru = await userModel.getForLogin(req.body.email);
+        let ru = await userModel.getOneByEmail(req.body.email);
         if (ru) {
-            return status(409).send('Conflict');
+            return res.status(409).send('Conflict');
         }
     } catch (err) {
         console.log(err);

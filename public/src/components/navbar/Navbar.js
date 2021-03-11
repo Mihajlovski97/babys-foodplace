@@ -32,7 +32,7 @@ export const Nav = () => {
                                 <button className="btn-login">Log in</button>
                             </Link>
                             <p className="spacer">or</p>
-                            <Link to={"/sing-up"}>
+                            <Link to={"/register"}>
                                 <button className="btn-singup">Create Account</button>
                             </Link>
                     </div>

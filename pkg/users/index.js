@@ -25,6 +25,11 @@ const getOne = async (id) => {
     return data;
 };
 
+const getOneByEmail = async (email) => {
+    let data = await User.findOne({ email });
+    return data;
+};
+
 const getForLogin = async (email) => {
     let data = await User.findOne({ email: email, active: true});
     return data;
@@ -43,6 +48,7 @@ const updatePartial = async (id, userData) => {
 module.exports = {
     create,
     getOne,
+    getOneByEmail,
     getForLogin,
     update,
     updatePartial
