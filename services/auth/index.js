@@ -12,10 +12,7 @@ const auth = require('./handlers/auth');
 const api = express();
 
 
-
-// const app = express();
-api.use(cors({credentials: true, origin:'http://localhost:3000'}));
-
+api.use(cors());
 
 
 api.use(bodyParser.json());

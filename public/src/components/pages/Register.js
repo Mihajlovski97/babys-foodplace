@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useState} from "react";
+import React, {useState} from "react";
 import {Redirect} from "react-router-dom";
 import "../pages/style.css";
 import "../../grid.css";
@@ -39,7 +39,6 @@ const Register = () => {
                 <div className="header-reg">
                     <div className="reg-row">
                         <h1 className="reg-title">Create Account</h1>
-                        <div className="line-header"></div>
                     </div>
                 </div>
                 <div className="col span-1-of-3">
