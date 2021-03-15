@@ -62,7 +62,7 @@ const login = async (req, res) => {
             };
             let key = cfg.get('security').jwt_key;
             let token = jwt.sign(payload, key);
-            return res.status(200).send({ jwt: token});
+            return res.status(200).send({user:ru, jwt:token});
         }
         return res.status(401).send('Unauthorized');
     } catch (err) {

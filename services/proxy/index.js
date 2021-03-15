@@ -11,9 +11,14 @@ app.use('/api/v1/auth', proxy(
 ));
 
 app.use('/api/v1/recipe', proxy(
-    '',
+    'http://localhost:10002',
     { proxyReqPathResolver: (req) => `http://localhost:10002/api/v1/recipe${req.url}` }        
-))
+));
+
+app.use('/api/v1/storage', proxy(
+    'http://localhost:10003',
+    { proxyReqPathResolver: (req) => `http://localhost:10002/api/v1/storage${req.url}` }
+));
 
 // app.use('/', express.static(path.join(__dirname, '/../../public/build')));
 
