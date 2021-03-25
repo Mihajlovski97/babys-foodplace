@@ -1,128 +1,158 @@
-import React, {useState} from "react";
-import {Redirect} from "react-router-dom";
-import "../pages/style.css";
-import "../../grid.css";
+import React, { useState , useEffect} from 'react';
+import { connect, useDispatch } from 'react-redux';
+import {useHistory} from 'react-router-dom';
+import '../../grid.css';
+import '../../babys-assets/baby-style/register.css';
+import {register} from '../../redux/ducks/auth';
 
-const Register = () => {
-    const [first_name, setFirstname] = useState('');
-    const [last_name, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [dob, setDob] = useState('');
-    const [redirect, setRedirect] = useState(false);
+export const Register = (props) => {
+    const dispatch = useDispatch();
+    let history = useHistory();
+    const [registrationData, setRegistrationData] = useState({
+        firstName:"",
+        lastName:"",
+        email:"",
+        birthday:"",
+        password:"",
+        repeatPassword:""
+    })
+    
+    const { firstName, lastName, email, birthday, password, repeatPassword} = registrationData;
 
-    const submit = async (e) => {
-        e.preventDefault();
-
-        await fetch('http://localhost:10001/api/v1/auth', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                first_name,
-                last_name,
-                email,
-                password,
-                dob
-            })
-        });
-
-        setRedirect(true);
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(password === repeatPassword){
+            register( firstName, lastName, email, birthday, password, repeatPassword)(dispatch)
+            props.history.push("/login")
+        }else{
+            alert('Password and Repeat Password do not match!')
+        }
+        
+        
     }
-
-    if (redirect) {
-        return <Redirect to="/login" />
-    }
-
-    return (
-        <div className="wraper">
+    return(
+        <div className='wraper'>
             <div className="container">
                 <div className="header-reg">
                     <div className="reg-row">
                         <h1 className="reg-title">Create Account</h1>
                     </div>
                 </div>
+
                 <div className="col span-1-of-3">
-                <div className="page-info">
-                    
+                    <div className="page-info">                    
                         <h2><span className="orange">Create your</span><span className="grey"><br />Account</span></h2>
-                        <p className="reg-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nisi, quia
-                        eaque,
-                        dolore ipsum
-                        omnis esse fugiat distinctio id aspernatur numquam nam exercitationem minima maiores. Provident
-                        accusamus impedit quos a erit, placeat perferendis, nesciunt consectetur
-                        ducimus eligendi facilis id quo voluptatibus sunt, harum odio adipisci ipsa totam!
-                        </p>
-                    
+                            <p className="reg-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nisi, quia
+                                eaque,
+                                dolore ipsum
+                                omnis esse fugiat distinctio id aspernatur numquam nam exercitationem minima maiores. Provident
+                                accusamus impedit quos a erit, placeat perferendis, nesciunt consectetur
+                                ducimus eligendi facilis id quo voluptatibus sunt, harum odio adipisci ipsa totam!
+                            </p>                    
+                    </div>
                 </div>
+
+
+            
+
+            <form onSubmit={handleSubmit}>
+
+            <div className="reg-form">
+
+            <div className="col span-1-of-3">   
+
+            
+
+                <label>First Name</label>
+                <input 
+                type="text"
+                id='firstName' 
+                className='form-control' 
+                placeholder='John' 
+                value={firstName} 
+                onChange={(e) => setRegistrationData({ ...registrationData, firstName: e.target.value })}>
+                </input>
+                
+
+                <label>Email</label>
+                <input 
+                type="email" 
+                id='email' 
+                className='form-control' 
+                placeholder='john@smith.com'  
+                value={email} 
+                onChange={(e) => setRegistrationData({ ...registrationData, email: e.target.value })}>
+                </input>
+                
+
+                <label>Password</label>
+                <input 
+                type="password" 
+                id='password' 
+                className='form-control' 
+                placeholder='******'  
+                value={password} 
+                onChange={(e) => setRegistrationData({ ...registrationData, password: e.target.value })}>
+                </input>  
+                 
             </div>
 
-        <form className="reg-form" onSubmit={submit}>
-
-        <div className="col span-1-of-3">
-
-            <label>First Name</label>
-            <input className="form-control" 
-            placeholder="First Name" 
-            required 
-            onChange={e => setFirstname(e.target.value)}
-            />
-            
-            <label>Email</label>
-            <input className="form-control"
-            type="email" 
-            placeholder="Email" 
-            required 
-            onChange={e => setEmail(e.target.value)}
-            />
-
-            <label>Password</label>
-            <input className="form-control"
-            type="password"
-            placeholder="Password" 
-            required 
-            onChange={e => setPassword(e.target.value)}
-            />
-    
-        </div>
+            <div className="col span-1-of-3">
+           
 
             
-        <div className="col span-1-of-3">
-
-            <label>Last Name</label>
-            <input className="form-control" 
-            placeholder="Last Name" 
-            required 
-            onChange={e => setLastname(e.target.value)}
-            />
-
-            <label>Birthday</label>
-            <input className="form-control"
-            type={Date} 
-            placeholder="Date of Birth" 
-            required 
-            onChange={e => setDob(e.target.value)}
-            />
-            
-            <label>Repeat Password</label>
-            <input className="form-control"
-            type="password" 
-            placeholder="Repeat Password" 
-            required 
-            onChange={e => setPassword(e.target.value)}
-            />
-            
-        </div>
-            
-
-            <button className="btn-reg" type="submit">Create Account</button>
 
 
-        </form>
+                <label>Last Name</label>
+                <input 
+                type="text" 
+                id='lastName' 
+                className='form-control' 
+                placeholder='Smith'  
+                value={lastName} 
+                onChange={(e) => setRegistrationData({ ...registrationData, lastName: e.target.value })}>
+                </input>
+                
+                
+
+                <label>Birthday</label>
+                <input 
+                type="date" 
+                id='birthday' 
+                className='form-control' 
+                placeholder='22-12-1999'  
+                value={birthday} 
+                onChange={(e) => setRegistrationData({ ...registrationData, birthday: e.target.value })}>
+                </input>     
+                
+
+                <label>Repeat Password</label>
+                <input 
+                type="password" 
+                id='repeatPassword' 
+                className='form-control' 
+                placeholder='******'  
+                value={repeatPassword} 
+                onChange={(e) => setRegistrationData({ ...registrationData, repeatPassword: e.target.value })}>
+                </input>
+                
+            </div>    
+
+            </div>
+                
+                <button className="btn-reg"  type="submit">Create Account</button>
+
+                {/* <div className='btn-div'>
+                <input type="submit" value="Create Account" className='submit-acc'/>
+                </div> */}
+
+            </form>
 
 
-        </div>
-        </div>
-    );
+            </div>
+            </div>
+        
+    )
 };
 
 export default Register;

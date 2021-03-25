@@ -71,7 +71,21 @@ const login = async (req, res) => {
     }
 };
 
+const updateUser = async (req,res) => {
+    try {
+        let data = await userModel.updateUser({_id:req.params.uid}, req.body)
+        if(data){
+            return res.status(200).send('User Updated');
+        }
+        return res.status(404).send('Not Found');
+    } catch (error) {
+        console.log(error);
+        return res.status(404).send('Internal Server Error');
+    }
+}
+
 module.exports = {
     create,
-    login
+    login,
+    updateUser
 };

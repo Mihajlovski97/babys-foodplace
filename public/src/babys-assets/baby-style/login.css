@@ -1,0 +1,68 @@
+.wraper {
+    margin: auto;
+}
+
+.container {
+    width: 100%; 
+}
+
+.orange {
+    color: orange;
+}
+
+.grey {
+    color: grey
+}
+
+.log-title {
+    color: #96BB36;
+    font-size: 36px;
+}
+
+.log-title::after {
+    content: "";
+    height: 1px;
+    background-color: grey;
+    min-width: calc(80% - 200px);
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.page-info {
+    margin-left: -20px;
+    margin-top: 50px;
+}
+
+.page-info h2 {
+    font-size: 42px;
+}
+
+.form-control {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+    color: #a5a5a5;
+    background: #f0efea;
+    width: 255px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.btn-lgn {
+    margin-top: 30px;
+    width: 105px;
+    height: 45px;
+    border: 1px solid grey;
+    opacity: 1;
+    font: normal normal 900 16px/21px Roboto;
+    letter-spacing: 0px;
+    background: #96BB36;
+    color: white;
+    text-transform: uppercase;
+    opacity: 1;
+    border-radius: 5px;
+    border: 1px solid var(--midgrey);
+    border: 1px solid #A5A5A5;
+}

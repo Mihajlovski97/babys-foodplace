@@ -2,11 +2,11 @@ const { Schema } = require('mongoose');
 const { Validator } = require('node-input-validator');
 
 const registrationSchema = {
-    first_name: 'required|minLength:3',
-    last_name: 'required|minLength:4',
+    firstName: 'required|minLength:3',
+    lastName: 'required|minLength:4',
     email: 'required|email',
     password: 'required',
-    dob: 'required'
+    birthday: 'required'
 };
 
 const loginSchema = {

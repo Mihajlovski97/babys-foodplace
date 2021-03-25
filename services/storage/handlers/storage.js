@@ -43,7 +43,9 @@ const storeFile = async (req, res) => {
     }
 
     res.status(201).send({
-        filename: fileName
+        // filename: fileName
+        
+        filePath
     });
 };
 

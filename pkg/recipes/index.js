@@ -3,66 +3,82 @@ const mongoose = require('mongoose');
 const Recipe = mongoose.model(
     'recipes',
     {
-        recipe_title: String,
-        category: String,
-        preparation_time: String,
-        people: String,
-        short_descrption: String,
-        recipe: String,
-        publish_date: Date,
-        _created: Boolean,
-        _deleted: Boolean,
-        user: {
-            id: String,
-            first_name: String,
-            last_name: String
-        }
+        title:String,
+        category:String,
+        prep_time:Number,
+        num_people:Number,
+        description:String,
+        recipe:String,
+        recipe_image:String,
+        uid:String,
+        pubDate:Date,
+        starCount:Number,
+        _deleted:Boolean
     },
-    'users'
+    'recipes'
 );
 
-const save = async (recipeData) => {
-    let u = new Recipe(recipeData);
-    let data = await u.save();
-    return data;
-};
-
-const getOne = async (id) => {
-    let data = await Recipe.findOne({_id: id});
-    return data;
+const save = async (data) => {
+    let recipe = new Recipe(data)
+    return await recipe.save()
 };
 
 const getAll = async () => {
-    let data = await Recipe.find({});
+    let data = await Recipe.find({})
     return data;
 };
 
-const getLast3 = async () => {
-    let data = await Recipe.find({}, {recipe_title: 1}).sort({ publish_date: -1}).limit(3);
+const getByPubDate = async() => {
+    let data = await Recipe.find({ _deleted:false}).sort({pubDate:-1}).limit(3)
+    return data;
+}
+
+const getOne = async (rid) => {
+    let data = await Recipe.findOne({_id:rid})
     return data;
 };
 
-const getByCategory = async (category) => {
-    let data = await Recipe.find({ category: category});
+const getByCategory = async (cat) => {
+    let data = await Recipe.find({ category:cat, _deleted:false })
     return data;
 };
 
-const update = async (id, recipeData) => {
-    let data = await Recipe.updateOne({_id: id}, recipeData);
-    return data.nModified !==0;
+
+const getByUserId = async (uid) => {
+    let data = await Recipe.find({ uid:uid , _deleted:false})
+    return data;
 };
 
-const remove = async (id) => {
-    let data = await Recipe.deleteOne({_id: id, 'user.id': uid });
-    return data.deletedCount !== 0;
+const updateStar = async( rid, recipeData) => {
+    let data = await Recipe.updateOne({_id: rid}, recipeData);
+    return data.nModified !== 0;
+};
+
+const getByStars = async () => {
+    let data = await Recipe.find({ _deleted:false}).sort({starCount:-1}).limit(6)
+    return data;
+}
+
+const update = async (rid, recipeData) => {
+        let data = await Recipe.updateOne({_id: rid}, recipeData)
+        return data.nModified !== 0;
+}
+
+
+const remove = async (rid) => {
+    let data = await Recipe.updateOne({ _id: rid}, {_deleted: true});
+    return data.nModified !== 0;
 };
 
 module.exports = {
     save,
-    getOne,
     getAll,
-    getLast3,
+    getOne,
     getByCategory,
-    update,
-    remove
+    getByPubDate,
+    getByUserId,
+    updateStar,
+    getByStars,
+    remove,
+    update
 };

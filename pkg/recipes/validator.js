@@ -1,21 +1,18 @@
-const { Schema } = require('mongoose');
 const { Validator } = require('node-input-validator');
 
+
 const recipeSchema = {
-    recipe_title: 'required|minLength:4',
-    category: 'required',
-    preparation_time: 'required',
-    people: 'required',
-    short_descrption: 'required',
+    title: 'required',
+    category:'required',
+    prep_time: 'required',
+    num_people:'required',
+    description:'required',
     recipe: 'required',
-    user: 'required|object',
-    'user.first_name': 'required|string',
-    'user.last_name': 'required|string'
 };
 
 const validate = async (data, schema) => {
     let v = new Validator(data, schema);
-    let e = v.check();
+    let e = await v.check();
     if(!e) {
         throw v.errors;
     }

@@ -3,12 +3,13 @@ const mongoose = require('mongoose');
 const User = mongoose.model(
     'users',
     {
-        first_name: String,
-        last_name: String,
+        firstName: String,
+        lastName: String,
         email: String,
         password: String,
-        dob: Date,
+        birthday: Date,
         active: Boolean,
+        avatar: String,
         _created: Date
     },
     'users'
@@ -40,10 +41,10 @@ const update = async (id, userData) => {
     return data.nModified !== 0;
 };
 
-const updatePartial = async (id, userData) => {
-    let data = await User.updateOne({ _id: id }, userData);
+const updateUser = async(uid, userData) => {
+    let data = await User.updateOne({_id: uid}, userData);
     return data.nModified !== 0;
-};
+}
 
 module.exports = {
     create,
@@ -51,5 +52,5 @@ module.exports = {
     getOneByEmail,
     getForLogin,
     update,
-    updatePartial
+    updateUser
 };

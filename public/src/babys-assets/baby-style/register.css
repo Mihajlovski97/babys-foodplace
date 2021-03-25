@@ -43,27 +43,15 @@
     margin-left: 5px;
 }
 
-.log-title {
-    color: #96BB36;
-    font-size: 36px;
-}
-
-.log-title::after {
-    content: "";
-    height: 1px;
-    background-color: grey;
-    min-width: calc(80% - 200px);
-    position: absolute;
-    margin-top: 30px;
-    margin-left: 5px;
-}
-
 .orange {
     color: orange;
 }
 
 .grey {
     color: grey
+}
+.reg-form {
+    margin-top: 60px;
 }
 
 .reg-txt {
@@ -82,8 +70,6 @@
 .page-info h2 {
     font-size: 42px;
 }
-
-
 
 .form-control {
     margin-top: 10px;
@@ -104,15 +90,7 @@ label {
     text-align: left;
     color: #f0972a;
     font-weight: bold;
-    font-size: 14px;
-}
-
-.login-form {
-    margin-top: 50px;
-}
-
-.reg-form {
-    margin-top: 50px;
+    font-size: 16px;
 }
 
 .btn-reg {
@@ -132,25 +110,5 @@ label {
     text-transform: uppercase;
     opacity: 1;
     border-radius: 5px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
-
-.btn-lgn {
-    margin-top: 30px;
-    width: 105px;
-    height: 45px;
-    border: 1px solid grey;
-    opacity: 1;
-    font: normal normal 900 16px/21px Roboto;
-    letter-spacing: 0px;
-    background: #96BB36;
-    color: white;
-    text-transform: uppercase;
-    opacity: 1;
-    border-radius: 5px;
-    border: 1px solid var(--midgrey);
-    border: 1px solid #A5A5A5;
-}
-
-
-

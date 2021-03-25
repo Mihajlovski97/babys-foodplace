@@ -1,40 +1,29 @@
-import React from "react"
-import {Link} from "react-router-dom";
-import logo from "../../babys-assets/logo_white.svg";
-import "../footer/footer.css";
+import React from 'react';
+import logo from '../../babys-assets/logo_white.svg';
 
-export const Footer = () => {
-    return(
+import '../footer/footer.css';
+
+const Footer = () => {
+    return (
         <div className="footer">
-        <footer className="wrapper-f">
-            <Link to="/" className=""><img src={logo} className="footer-logo" /></Link>
-            <div className="footer-items">
-                <ul>
-                    <li>
-                        <Link to="/breakfast" className="link-item-f">breakfast</Link>
-                    </li>
-                    <div class="circle-white"></div>
-                    <li>
-                        <Link to="/brunch" className="link-item-f">brunch</Link>
-                    </li>
-                    <div class="circle-white"></div>
-                    <li>
-                        <Link to="/lunch" className="link-item-f">lunch</Link>
-                    </li>
-                    <div class="circle-white"></div>
-                    <li>
-                        <Link to="/dinner" className="link-item-f">dinner</Link>
-                    </li>
-                </ul> 
-                <div className="footer-copyright">
-                    <p class="white-p">
-                        Baby’s Food Place <br />copyright © 2021
-                    </p>  
-                </div>   
-            </div> 
-        </footer>
+            <div className="logo-white">
+                <img src={logo} alt="footer-logo" />
+            </div>
+            <div className="categories-footer">
+                <span>Breakfast</span>
+                <div className="circlefooter"></div>
+                <span>Brunch</span>
+                <div className="circlefooter"></div>
+                <span>Lunch</span>
+                <div className="circlefooter"></div>
+                <span>Dinner</span>
+            </div>
+            <div className="copyright">
+                <span>Baby's Food Place</span> <br />
+                <span>copyright © 2021</span>
+            </div>
         </div>
-    )
-};
+    );
+}
 
-export default Footer
+export default Footer;

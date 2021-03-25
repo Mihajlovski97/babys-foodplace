@@ -1,38 +1,32 @@
-import React, { useState } from "react";
-import {Redirect} from "react-router-dom";
-import axios from "axios";
-import "../pages/style.css";
-import "../../grid.css";
+import React, { useState , useEffect} from 'react';
+import { connect, useDispatch } from 'react-redux';
+import {useHistory} from 'react-router-dom';
+import {logIn} from '../../redux/ducks/auth';
+// import {getToken, setUserStorage} from '../helpers/storageFunctions';
 
-const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [redirect, setRedirect] = useState(false);
-    
+import '../../babys-assets/baby-style/login.css';
+import '../../grid.css';
 
-    const submit = async (e) => {
-        e.preventDefault();
+export const Login = (props) => {
+    const dispatch = useDispatch();
+    let history = useHistory();
+    const [loginData, setLoginData] = useState({
+        email:'',
+        password:'',
+        
+    });
 
-        axios.post('http://localhost:10001/api/v1/auth/login', {
-            email, 
-            password
-        })
-        .then(res => {
-            localStorage.setItem("user", JSON.stringify(res.data.user));
-            localStorage.setItem("jwt", JSON.stringify(res.data.jwt));
-        });
-
-        setRedirect(true);
-    };
-
-    if (redirect) {
-        return <Redirect to="profile" />
+    const handleLogin = (e) => {
+        e.preventDefault()
+        logIn(email,password)(dispatch);
     }
 
-    return (
-        <div className="wraper">
+    const {email, password} = loginData;
+
+    return(
+        <div className='wraper'>
             <div className="container">
-                <div className="log-reg">
+            <div className="log-reg">
                     <div className="reg-row">
                         <h1 className="log-title">Log in</h1>
                         
@@ -50,41 +44,45 @@ const Login = () => {
                         </p>
                 </div> 
             </div>
+             
+            <div className='login-form'>
             
 
+                <form className='log-in' onSubmit={handleLogin}>
 
+                <div className="col span-1-of-2">
 
+                <label className='label'>Email</label><br/>
+                <input 
+                type="email" 
+                id='email' 
+                className='form-control' 
+                placeholder='user@domain.com' 
+                value={email} 
+                onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}>
+                </input>
+                <br/>
 
+                <label className='label'>Password</label><br/>
+                <input 
+                type="password" 
+                id='password' 
+                className='form-control' 
+                placeholder='******' 
+                value={password} 
+                onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}>
+                </input>  
+                <br/>
 
-        <form onSubmit={submit}>
-        <div className="login-form">
-        <div className="col span-1-of-2">
+                <button className="btn-lgn" type="submit">Login</button>
+                
+                {/* <input type="submit" value="Log In" className='submit-login'/> */}
 
-            <label>Email</label>
-            <input className="form-control"
-            type="email" 
-            placeholder="Email" 
-            required 
-            onChange={e => setEmail(e.target.value)}
-            />
-
-            <label>Password</label>
-            <input className="form-control"
-            type="password"
-            placeholder="Password" 
-            required 
-            onChange={e => setPassword(e.target.value)}
-            />
-
-            <br />
-
-            <button className="btn-lgn" type="submit">Login</button>
-            </div>
-            </div>
-        </form>
-        
-
-        </div>
+                </div>
+                
+                </form>
+             </div>
+             </div>
         </div>
     )
 }

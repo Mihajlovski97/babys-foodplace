@@ -4,10 +4,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('express-jwt');
 const upload = require('express-fileupload');
+const cors = require('cors');
 
 const storage = require('./handlers/storage');
 
 const api = express();
+
+api.use(cors());
 
 api.use(bodyParser.json());
 api.use(jwt({
