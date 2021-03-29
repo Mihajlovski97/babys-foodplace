@@ -9,7 +9,7 @@ import PopUp from './PopUp';
 
 
 const Card = ({ recipes }) => {
-    const [recipe,setRecipe] = useState(recipes)
+    const [recipe, setRecipe] = useState(recipes)
     const [popupData, setPopupData] = useState({});
   
  const starOne = (_id) => {
@@ -44,9 +44,9 @@ const Card = ({ recipes }) => {
         <div className="div-card">
             {recipes.map(recipe => (
                     <div className="recipe-card" key={recipe._id}>
-                        <div className='image-ses'>
+                        <div className='image-pos'>
                         <p className='card-cat'>{recipe.category}</p>
-                        <img className="card-img" src={`http://localhost:10003/api/v1/storage/${recipe.recipe_image}`} alt="" />
+                        <img className="card-img" src={`http://localhost:10003/api/v1/storage/${recipe.recipe_image}`} alt="recipe-photo" />
                     </div>
                     <div className="card-container">
                         <h3 className="card-title">{recipe.title}</h3>

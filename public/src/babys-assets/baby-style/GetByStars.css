@@ -1,0 +1,18 @@
+.most-stared{
+    margin-top: 50px;
+}
+
+.title-popular {
+    color: #96BB36;
+    font-size: 36px;
+}
+
+.title-popular::after {
+    content: "";
+    height: 1px;
+    background-color: grey;
+    min-width: calc(70% - 185px);
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 5px;
+}

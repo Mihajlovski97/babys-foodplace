@@ -32,7 +32,7 @@ api.use(upload({
 
 api.post('/api/v1/storage', storage.storeFile);
 api.get('/api/v1/storage/:fid', storage.getFile);
-api.get('/api/v1/storage/public/:fid', storage.getPublicFile);
+
 
 api.listen(cfg.get('services').storage.port, err => {
     if (err) {

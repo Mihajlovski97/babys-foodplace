@@ -11,12 +11,10 @@ export const GetByPubDate = (props) => {
 return(
     <div className='getByPubDate'>
         <div className="div-title">
-            <h2 className="title">Fresh & New</h2><hr className="hr-date"></hr>
+            <h2 className="title-fresh">Fresh & New</h2>
         </div>
         <div className="date-div">
         <div className="recipes-date">
-             {/* {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>} */}
             {data && <Card recipes={data} />} 
         </div>
         </div>

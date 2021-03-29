@@ -27,7 +27,7 @@ const storeFile = async (req, res) => {
     let dir = public ? 'public' : req.user.uid;
 
     // check if user directory exists, if not create
-    let userDir = `${__dirname}/../../../uploads/${dir}`;
+    let userDir = `${__dirname}/../../../uploads`;
     if(!fs.existsSync(userDir)) {
         fs.mkdirSync(userDir);
     }
@@ -43,26 +43,12 @@ const storeFile = async (req, res) => {
     }
 
     res.status(201).send({
-        // filename: fileName
-        
-        filePath
+        filename: fileName
     });
 };
 
 const getFile = (req, res) => {
-    let userDir = `${__dirname}/../../../uploads/${req.user.uid}`;
-    let fileName = req.params.fid;
-    let filePath = `${userDir}/${fileName}`;
-
-    if (!fs.existsSync(filePath)) {
-        return res.status(404).send('File Not Found');
-    }
-
-    res.download(filePath);
-};
-
-const getPublicFile = (req, res) => {
-    let userDir = `${__dirname}/../../../uploads/public`;
+    let userDir = `${__dirname}/../../../uploads`;
     let fileName = req.params.fid;
     let filePath = `${userDir}/${fileName}`;
 
@@ -76,5 +62,4 @@ const getPublicFile = (req, res) => {
 module.exports = {
     storeFile,
     getFile,
-    getPublicFile
 };

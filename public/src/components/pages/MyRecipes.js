@@ -48,37 +48,34 @@ export const MyRecipes = () => {
             console.log(newRecipes)
             setMyrecipes([...newRecipes]);
     };
-    // const [prevData, setPrevData] = useState({})
+    
     const redirectToUpdate = (rid) => {
         history.push(`update-recipe/${rid}`)
     }
 
-    // console.log(myrecipes)
+    
     return(
         <div className='my-recipes'>
             <div className="div-title">
-            <h2 className="title">My Recipes</h2><hr className="hr-date"></hr>
-           <Link to={ROUTES.ADD_RECIPE}> <div className='plus'><img className='znak' src={plus} alt=""/></div></Link>
+            <h2 className="title-recipes">My Recipes</h2>
+           <Link to={ROUTES.ADD_RECIPE}><div className='plus'><img className='sing' src={plus} alt=""/></div></Link>
             </div>
-
                 <table className='my-recipes-table'>
                     <thead>
                     <tr className='tr'>
-                        <th className='head1'>Recipe Name</th>
-                        <th className='head2'>Category</th>
-                        <th className='head3'>Created On</th>
-                        <th className='head4'>Delete</th>
+                        <th className='table-head-1'>Recipe Name</th>
+                        <th className='table-head-2'>Category</th>
+                        <th className='table-head-3'>Created On</th>
+                        <th className='table-head-4'>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
                     {myrecipes && myrecipes.map(recipe => (
-                    <tr key={recipe._id} className='trr'>
-                        {/* <Link className='tr' to={`recipes/${recipe._id}`}> */}
+                    <tr key={recipe._id} className='trr'>                    
                             <td className='my-recipe-title' onClick={()=>redirectToUpdate(recipe._id)}>{recipe.title}</td>
                             <td className='my-recipe-cat' onClick={()=>redirectToUpdate(recipe._id)}><div>{recipe.category}</div></td>
                             <td className='my-recipe-date' onClick={()=>redirectToUpdate(recipe._id)}>{new Date(recipe.pubDate).toLocaleDateString()}</td>
-                            <td className='my-recipe-del' onClick={()=>{deleteRecipe(recipe._id)}}><img src={icon_trash}/></td>
-                        {/* </Link> */}
+                            <td className='my-recipe-del' onClick={()=>{deleteRecipe(recipe._id)}}><img src={icon_trash}/></td>          
                     </tr>                    
               ))}
               </tbody>

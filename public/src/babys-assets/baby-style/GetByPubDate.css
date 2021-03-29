@@ -3,15 +3,31 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
- }
- .date-title{
-     width: 100%;
-     display: flex;
- }
+}
+
+.date-title{
+    width: 100%;
+    display: flex;
+}
+
+.title-fresh {
+    color: #96BB36;
+    font-size: 36px;
+}
+
+.title-fresh::after {
+    content: "";
+    height: 1px;
+    background-color: grey;
+    min-width: calc(90% - 340px);
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 5px;
+}
  
- .date-div{
-     width: 100%;
-     display: flex;
-     align-self: flex-start;
-     padding-top: 20px;
+.date-div{
+    width: 100%;
+    display: flex;
+    align-self: flex-start;
+    padding-top: 20px;
  }
