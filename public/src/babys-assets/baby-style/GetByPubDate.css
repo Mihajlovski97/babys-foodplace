@@ -19,7 +19,7 @@
     content: "";
     height: 1px;
     background-color: grey;
-    min-width: calc(90% - 340px);
+    min-width: 1000px;
     position: absolute;
     margin-top: 35px;
     margin-left: 5px;

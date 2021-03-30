@@ -22,7 +22,7 @@ export const AddRecipe = (props) => {
     
     const convertBinaryImage = (e) => {
         setFile(e.target.files[0])
-        // console.log(file)
+        
         let reader = new FileReader()
         reader.readAsDataURL(e.target.files[0])
     
@@ -32,19 +32,16 @@ export const AddRecipe = (props) => {
           bin = reader.result
           setImage(bin);
         }
-        // console.log(file)
+        
         
         reader.onerror = function() {
           bin = null
         }
-        // uploadFile().then(r=>r)
+        
       }
 
      const uploadImage =(img, token) => {
-        // for(let key of img.entries()){
-        //     console.log(key)
-        //     console.log(key[0], key[1])
-        // }
+
          return fetch(`http://localhost:10003/api/v1/storage`,{
              method:'POST',
              headers:{
@@ -94,8 +91,8 @@ export const AddRecipe = (props) => {
 
         <div className='new-recipe'>
             <div className="div-title">
-            <h2 className="title">My Recipes</h2><hr className="hr-date"></hr>
-           <Link to={ROUTES.MY_RECIPES}> <div className='plus'><img className='znak' src={back} alt=""/></div></Link>
+            <h2 className="title-recipes">My Recipes</h2>
+           <Link to={ROUTES.MY_RECIPES}> <div className='plus'><img className='back' src={back} alt=""/></div></Link>
             </div>
             <form onSubmit={handleSaveRecipe} >
             <div className='container-recipe'>    

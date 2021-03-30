@@ -12,6 +12,10 @@
     margin-bottom: 30px;
 }
 
+.back {
+    margin: 11px 11px;
+}
+
 .recipe-image{
     display: flex;
     flex-direction: column; 
@@ -143,7 +147,7 @@
     font: normal normal normal 14px/19px Roboto;
     letter-spacing: 0px;
     color: #A5A5A5;
-    margin-top: 9px;
+    margin-top: 20px;
 }
 
 .right-recipe{
@@ -155,7 +159,7 @@
 
 .recipe-text{
     width: 377px;
-    height: 284px;
+    height: 310px;
     border: 1px solid var(--midgrey);
     background: #F0EFEA 0% 0% no-repeat padding-box;
     border: 1px solid #A5A5A5;

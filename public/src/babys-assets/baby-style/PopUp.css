@@ -1,4 +1,4 @@
-.blur{
+.blur {
     left: 0;
     right: 0;
     top: 0;
@@ -7,7 +7,7 @@
     backdrop-filter: blur(10px);
     z-index: 1;
 }
-.popup{
+.popup {
     position: fixed;
     width: 1027px;
     height: 599px;
@@ -19,27 +19,26 @@
     border-radius: 5px;
     opacity: 1;
     display: flex;
-    top:199px;
-    left:447px;
+    top: 100px;
+    left: 450px;
     z-index: 1;
-
 }
 
-.popup-inner{
-    position: relative;
+.popup-inner {
+    position: fixed;
     width: 100%;
     display: flex;
     flex-direction: column;
     margin:5px auto;
 }
 
-.popup-title-div{
+.popup-title-div {
     display: flex;
     flex-direction: row;
     margin:5px 30px;    
 }
 
-.popup-title{
+.popup-title {
     top: 221px;
     left: 479px;
     width: 467px;
@@ -55,7 +54,7 @@
     padding-top: 10px;
 }
 
-.close{
+.close {
     /* width: 37px;
     height: 37px; */
     opacity: 1;
@@ -63,22 +62,24 @@
     left: 1411px;
     padding-left: 500px;
     padding-top: 10px;
+    margin-left: -20px;
 }
 
-.popup-container{
+.popup-container {
     display: flex;
     flex-direction: row;
     width: 100%;
+    overflow: hidden;
 }
 
-.popup-left{
+.popup-left {
     display: flex;
     flex-direction: column;
     width: 40%;
     margin:20px 30px;
 }
 
-.popup-img{
+.popup-img {
     top: 293px;
     left: 479px;
     width: 412px;
@@ -87,7 +88,7 @@
     opacity: 1;   
 }
 
-.popup-cat{
+.popup-cat {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -95,7 +96,7 @@
   
 }
 
-.cat-title{
+.cat-title {
     top: 558px;
     /* left: 479px; */
     width: 134px;
@@ -111,7 +112,7 @@
     margin-top: 5px;
 }
 
-.green-cat{
+.green-cat {
     flex-wrap: wrap;
     width: 62px;
     height: 26px;
@@ -121,7 +122,7 @@
     opacity: 1;
     margin-left: 215px;
 }
-.cat-p{
+.cat-p {
     font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-roboto-slab);
     letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--white);
@@ -133,7 +134,7 @@
 
 }
 
-.popup-desc{
+.popup-desc {
     width: 412px;
     height: 126px;
     font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 16px/21px var(--unnamed-font-family-roboto);
@@ -147,13 +148,14 @@
     margin-top: 30px;
 }
 
-.popup-right{
+.popup-right {
     display: flex;
     flex-direction: column;
     margin-top: 15px;
+    margin-left: -300px;
 }
 
-.full-recipe{
+.full-recipe {
     width: 504px;
     height: 436px;
     font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 16px/21px var(--unnamed-font-family-roboto);

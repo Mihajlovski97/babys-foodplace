@@ -32,7 +32,7 @@ export const GetByCategory = () => {
     return(
         <div className='category-page'>
             <div className="div-title">
-            <h2 className="title">{title}</h2><hr className="hr-date"></hr>
+            <h2 className="title-recipes">{title}</h2>
             </div>
             <div className="div-recipes-category">
                 {data && <Card recipes={data} />}
